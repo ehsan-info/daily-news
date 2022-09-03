@@ -87,7 +87,7 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
                                 <div class="col-9">
                                     <div class="row">
                                         <div class="col-12">
-                                            <p>${catDetail.author.name ? catDetail.author.name : 'No Author'}</p>
+                                            <p class="author-name">${catDetail.author.name ? catDetail.author.name : 'No Author'}</p>
                                         </div>
                                         <div class="col-12">
                                             <p class="card-text"><small class="text-muted">${catDetail.author.published_date}</small></p>
@@ -100,7 +100,7 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
                             <p><i class="fa-solid fa-eye"></i><span class="ms-3">${catDetail.total_view ? catDetail.total_view : 'No views yet'}</span></p>
                         </div>
                         <div class="col-12 col-lg-3">
-                            <button onclick="readMore('${catDetail._id}', '${catId}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <button onclick="readMore('${catDetail._id}', '${catId}')" type="button" class="btn btn-primary read-more-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <i class="fa-solid fa-arrow-right"></i> Read More
                             </button>
                         </div>

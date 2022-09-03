@@ -30,6 +30,10 @@ section.top-nav {
     height: 400px;
 }
 
+.author-name {
+    margin: 0;
+}
+
 .news-footer {
     padding: 30px;
 }
@@ -39,7 +43,20 @@ section.top-nav {
     color: #949494;
 }
 
-@media screen and (max-width: 400px) {}
+@media screen and (max-width: 400px) {
+    .newz-slider-container .carousel-inner img {
+        height: 300px;
+    }
+
+    .news-div-row .card-body .card-text {
+        text-align: justify;
+    }
+
+    .read-more-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
 
 @media screen and (min-width: 401px) and (max-width: 900px) {
     .carousel-caption {
@@ -56,8 +73,17 @@ section.top-nav {
         height: 150px;
     }
 
+    .read-more-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
     .news-div-row img.img-fluid.rounded-start {
         width: 100%;
         height: 300px;
+    }
+
+    .news-div-row .card-body .card-text {
+        text-align: justify;
     }
 }
