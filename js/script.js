@@ -34,17 +34,18 @@ const categoryListDetails = async (catId, catName) => {
     try {
         const res = await fetch(url);
         const data = await res.json();
-        loadCategoryDetails(data.data, catName);
+        loadCategoryDetails(data.data, catName, catId);
     }
     catch (error) {
         console.log(error);
     }
 }
-const loadCategoryDetails = (catDetails, catName) => {
+const loadCategoryDetails = (catDetails, catName, catId) => {
     const getNewsContainerDiv = document.getElementById('news-container-id');
     getNewsContainerDiv.innerHTML = '';
     //display message
     const itemFound = document.getElementById('item-found-message');
+    itemFound.innerHTML = '';
     itemFound.classList.remove('d-none');
     const createMessage = document.createElement('p');
     if (catDetails.length === 0) {
@@ -60,7 +61,7 @@ const loadCategoryDetails = (catDetails, catName) => {
     itemFound.appendChild(createMessage);
 
     catDetails.forEach(catDetail => {
-        console.log(catDetail);
+        // console.log(catDetail);
 
         const sliceDetails = inputData => inputData.length > 500 ? `${inputData.substring(0, 500)}...` : inputData;
         const createNewsRow = document.createElement('div');
@@ -97,7 +98,9 @@ const loadCategoryDetails = (catDetails, catName) => {
                         </div>
                         <div class="col-3"></div>
                         <div class="col-3">
-                            <p><i class="fa-solid fa-arrow-right"></i></p>
+                            <button onclick="readMore('${catDetail._id}', '${catId}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <i class="fa-solid fa-arrow-right"></i> Read More
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -117,4 +120,49 @@ const toggleSpinner = isLoading => {
     else {
         loaderSection.classList.add('d-none');
     }
+}
+//Display Details
+const readMore = async (catDetailId, catId) => {
+
+    const url = `https://openapi.programming-hero.com/api/news/${catDetailId}`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        loadDisplayDetails(data.data[0], catDetailId, catId);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+const loadDisplayDetails = (catData, catDetailId, catId) => {
+    console.log(catData);
+    const getModal = document.getElementById('modal-container');
+    const createModalBody = document.createElement('div');
+    createModalBody.innerHTML = `
+    <div class="row">
+        <p><img class="img-fluid" src="${catData.image_url}" alt=""></p>
+    </div>
+    <div class="row">
+        <h5 class="modal-title" id="staticBackdropLabel">Title: ${catData.title}</h5>
+    </div>
+    <div class="row">
+        <p>${catData.details}</p>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <img class="img-fluid" src="${catData.author.img}" alt="">
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12">
+                    <p>${catData.author.name ? catData.author.name : 'No Author'}</p>
+                </div>
+                <div class="col-12">
+                    <p class="card-text"><small class="text-muted">${catData.author.published_date}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+    getModal.appendChild(createModalBody);
 }
