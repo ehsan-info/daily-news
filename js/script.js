@@ -46,15 +46,19 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
     itemFound.innerHTML = '';
     itemFound.classList.remove('d-none');
     const createMessage = document.createElement('p');
+    const getSliderDiv = document.getElementById('slider-body-container');
+
     if (catDetails.length === 0) {
         createMessage.innerHTML = `
             <span>No</span> news found for category <span>${catName}</span>
             `;
+        getSliderDiv.classList.remove('d-none');
     }
     else {
         createMessage.innerHTML = `
             <span>${catDetails.length}</span> news found for category <span>${catName}</span>
             `;
+        getSliderDiv.classList.add('d-none');
     }
     itemFound.appendChild(createMessage);
     //descending order

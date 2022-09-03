@@ -12,3 +12,21 @@ section.top-nav {
     width: 200px;
     border-radius: 50%;
 }
+
+.carousel-inner img {
+    width: 100%;
+    /* Set width to 100% */
+    margin: auto;
+    height: 700px;
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+        /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
