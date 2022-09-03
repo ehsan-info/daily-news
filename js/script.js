@@ -39,5 +39,52 @@ const categoryListDetails = async (catId) => {
     }
 }
 const loadCategoryDetails = catDetails => {
-    console.log(catDetails);
+    const getNewsContainerDiv = document.getElementById('news-container-id');
+    catDetails.forEach(catDetail => {
+        console.log(catDetail);
+        const createNewsRow = document.createElement('div');
+        createNewsRow.classList.add('news-div-row', 'my-3', 'card', 'p-4');
+        createNewsRow.innerHTML = `
+        <div class="row g-3">
+            <div class="col-md-4">
+                <img src="${catDetail.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="img-fluid" src="images/fas-removebg-preview.png" alt="">
+                                </div>
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p>Jane Cooper</p>
+                                        </div>
+                                        <div class="col-12">
+                                            <p>Jan 10,2022</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <p><i class="fa-solid fa-eye"></i><span>1.5M</span></p>
+                        </div>
+                        <div class="col-3"></div>
+                        <div class="col-3">
+                            <p><i class="fa-solid fa-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+        getNewsContainerDiv.appendChild(createNewsRow);
+    });
 }
