@@ -1,9 +1,10 @@
+//load category list
 const loadCategoriesList = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     try {
         const res = await fetch(url);
         const data = await res.json();
-        displayList(data.data.news_category);
+        displayList(data.data.news_category);//call displayList function to display category list
     }
     catch (error) {
         console.log(error);
@@ -70,20 +71,20 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
         createNewsRow.classList.add('news-div-row', 'my-3', 'card', 'p-4');
         createNewsRow.innerHTML = `
         <div class="row g-3">
-            <div class="col-md-3">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-3">
                 <img src="${catDetail.thumbnail_url}" class="img-fluid rounded-start" alt="...">
             </div>
-            <div class="col-md-9">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-9">
                 <div class="card-body">
                     <h5 class="card-title">${catDetail.title}</h5>
                     <p class="card-text">${sliceDetails(catDetail.details)}</p>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-8 col-lg-5">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-3">
                                     <img class="img-fluid" src="${catDetail.author.img}" alt="">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-9">
                                     <div class="row">
                                         <div class="col-12">
                                             <p>${catDetail.author.name ? catDetail.author.name : 'No Author'}</p>
@@ -95,11 +96,10 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <p><i class="fa-solid fa-eye"></i><span>${catDetail.total_view ? catDetail.total_view : 'No views yet'}</span></p>
+                        <div class="col-4 col-lg-4">
+                            <p><i class="fa-solid fa-eye"></i><span class="ms-3">${catDetail.total_view ? catDetail.total_view : 'No views yet'}</span></p>
                         </div>
-                        <div class="col-3"></div>
-                        <div class="col-3">
+                        <div class="col-12 col-lg-3">
                             <button onclick="readMore('${catDetail._id}', '${catId}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <i class="fa-solid fa-arrow-right"></i> Read More
                             </button>
