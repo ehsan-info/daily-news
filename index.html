@@ -24,12 +24,73 @@
                                     <a class="nav-link active" aria-current="page" href="#">News</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdropnew">Blog</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
+            </div>
+        </section>
+        <section>
+            <div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdropnew" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabelnew" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabelnew">Important Questions</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h6 class="fw-bold">Var, Let, and Const - What's the Difference?</h6>
+                                <p><span class="fw-bold">VAR: </span> When 'var' is declared outside function it can be
+                                    accessed or used
+                                    in whole window. But if it is declared between a fucntion then it can not be
+                                    accessed outside that function.</p>
+                                <p>'var' can be re-declare and updated. This means that if we want to change the value
+                                    of var variable or re-declare the variable it will not produce an error.</p>
+
+                                <p><span class="fw-bold">Let: </span>It is an improved version of 'var'. It solved the
+                                    problems of 'var'
+                                </p>
+                                <p>Anything bounded by {} is considered as a block. Any variable within this block can
+                                    only be accessed within that block. We can not use outside that block</p>
+                                <p>Let can be updated within its scope like var but can not be re-declared. If we try to
+                                    re-declare, then it will give an error.</p>
+                                <p><span class="fw-bold">Const: </span>Like 'let' declarations, 'const' can also be used
+                                    within the scope. But here it can not be re-declared and not even updated the value.
+                                    In both cases it will give an error.</p>
+                                <hr>
+                                <h6 class="fw-bold">Differences Between Arrow Functions and Regular Functions</h6>
+                                <p>Arrow function is a new feature of ES6 that is more concise syntax for writing
+                                    function expressions.Though they both serve a similar role but there are some
+                                    difference between them</p>
+                                <p>Developer now can get the similar result by doing less code of lines. </p>
+                                <p>Arrow functions dont have their own 'this' like regular function. The value of 'this'
+                                    will be same throughout the life cycle of the function.</p>
+                                <p>Regular functions declaration or expressions are callable or constructurable but
+                                    arrow functions are only callable not constructurable.</p>
+                                <hr>
+                                <h6 class="fw-bold">Why do we use Template String ?</h6>
+                                <p>Template Strings are very powerfull feature of ES6. It has saved us from hassle we
+                                    used to do it before. By using this we do not need to concatenate string ar
+                                    variables like in older version of JavaScript. It lets us insert or interpolate
+                                    expression and variables intro string without using concatenation. To do this we
+                                    just need to use backtick and it will delimit them.</p>
+                                <p>Another great feature of Template String is that we can write multi lines strings for
+                                    better code readability. But in old version we had to concatenate each line of
+                                    string to make multiline code.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </header>

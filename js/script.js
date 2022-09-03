@@ -48,12 +48,12 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
     const createMessage = document.createElement('p');
     if (catDetails.length === 0) {
         createMessage.innerHTML = `
-            <span>No</span> items found for category <span>${catName}</span>
+            <span>No</span> news found for category <span>${catName}</span>
             `;
     }
     else {
         createMessage.innerHTML = `
-            <span>${catDetails.length}</span> items found for category <span>${catName}</span>
+            <span>${catDetails.length}</span> news found for category <span>${catName}</span>
             `;
     }
     itemFound.appendChild(createMessage);
