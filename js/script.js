@@ -1,4 +1,3 @@
-// console.log('hello');
 const loadCategoriesList = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     try {
@@ -11,10 +10,8 @@ const loadCategoriesList = async () => {
     }
 }
 const displayList = categories => {
-    // console.log(categories);
     const getCategoryUl = document.getElementById('category-list-id');
     categories.forEach(category => {
-        console.log(category);
         const createLi = document.createElement('li');
         createLi.classList.add('nav-item', 'active');
         createLi.innerHTML = `
@@ -41,6 +38,7 @@ const categoryListDetails = async (catId, catName) => {
     }
 }
 const loadCategoryDetails = (catDetails, catName, catId) => {
+    console.log(catDetails);
     const getNewsContainerDiv = document.getElementById('news-container-id');
     getNewsContainerDiv.innerHTML = '';
     //display message
@@ -59,10 +57,10 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
             `;
     }
     itemFound.appendChild(createMessage);
-
+    //descending order
+    catDetails.sort((a, b) => parseFloat(b.total_view) - parseFloat(a.total_view));
     catDetails.forEach(catDetail => {
-        // console.log(catDetail);
-
+        console.log(catDetail);
         const sliceDetails = inputData => inputData.length > 500 ? `${inputData.substring(0, 500)}...` : inputData;
         const createNewsRow = document.createElement('div');
         createNewsRow.classList.add('news-div-row', 'my-3', 'card', 'p-4');
@@ -112,6 +110,8 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
     //stop loader or hide loader
     toggleSpinner(false);
 }
+categoryListDetails(01);
+//loader
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
     if (isLoading) {
@@ -135,8 +135,8 @@ const readMore = async (catDetailId, catId) => {
     }
 }
 const loadDisplayDetails = (catData, catDetailId, catId) => {
-    console.log(catData);
     const getModal = document.getElementById('modal-container');
+    getModal.innerHTML = '';
     const createModalBody = document.createElement('div');
     createModalBody.innerHTML = `
     <div class="row">

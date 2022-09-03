@@ -7,3 +7,8 @@
 section.top-nav {
     border-bottom: 1px solid #ada9a9;
 }
+
+.news-div-row .card-body img {
+    width: 200px;
+    border-radius: 50%;
+}
