@@ -26,7 +26,7 @@ const displayList = categories => {
 loadCategoriesList();
 
 const categoryListDetails = async (catId, catName) => {
-    //star laoder
+    //Start spinner
     toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${catId}`;
     try {
@@ -39,7 +39,6 @@ const categoryListDetails = async (catId, catName) => {
     }
 }
 const loadCategoryDetails = (catDetails, catName, catId) => {
-    console.log(catDetails);
     const getNewsContainerDiv = document.getElementById('news-container-id');
     const loadCatDivMenue = document.getElementById('category-div-menue');
     getNewsContainerDiv.innerHTML = '';
@@ -65,10 +64,9 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
         loadCatDivMenue.classList.remove('d-none');
     }
     itemFound.appendChild(createMessage);
-    //descending order
-    catDetails.sort((a, b) => parseFloat(b.total_view) - parseFloat(a.total_view));
+
+    catDetails.sort((a, b) => parseFloat(b.total_view) - parseFloat(a.total_view));//descending order
     catDetails.forEach(catDetail => {
-        console.log(catDetail);
         const sliceDetails = inputData => inputData.length > 500 ? `${inputData.substring(0, 500)}...` : inputData;
         const createNewsRow = document.createElement('div');
         createNewsRow.classList.add('news-div-row', 'my-3', 'card', 'p-4');
@@ -114,11 +112,11 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
         `;
         getNewsContainerDiv.appendChild(createNewsRow);
     });
-    //stop loader or hide loader
+    //stop Spinneror hide Spinner
     toggleSpinner(false);
 }
 categoryListDetails();
-//loader
+//Spinner
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
     if (isLoading) {
