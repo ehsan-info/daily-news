@@ -34,6 +34,8 @@
             </div>
         </section>
         <!-- End Top Nav Bar  -->
+    </header>
+    <main class="container">
         <!-- Start Modal Section  -->
         <section>
             <div>
@@ -95,8 +97,6 @@
                 </div>
             </div>
         </section>
-    </header>
-    <main class="container">
         <!-- Start News Category Container List  -->
         <section class="news-category-list-container my-3 px-4">
             <div>
@@ -207,6 +207,42 @@
         <!-- Start News List Container  -->
         <section class="news-list-container">
             <div class="px-4">
+                <div id="category-div-menue" class="d-none">
+                    <nav class="navbar navbar-expand-lg bg-transparent
+                    ">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarScroll">
+                                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+                                    style="--bs-scroll-height: 100px">
+                                    <li class="nav-item">
+                                        <p class="nav-link">Search By View: </p>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <p>
+                                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                Default
+                                            </a>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <div class="d-flex">
+                                    <button class="btn btn-outline-primary me-2" type="submit">
+                                        Today's Pick
+                                    </button>
+                                    <button class="btn btn-outline-primary" type="submit">
+                                        Trending
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
                 <div id="news-container-id" class="my-3">
 
 
@@ -214,6 +250,8 @@
             </div>
         </section>
         <!-- End News List Container  -->
+
+        <!-- Start Modal Section Area  -->
         <section class="modal-body">
             <div>
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -235,6 +273,7 @@
                 </div>
             </div>
         </section>
+        <!-- End Modal Section Area  -->
     </main>
     <footer class="news-footer bg-white">
         <section>

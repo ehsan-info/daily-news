@@ -41,6 +41,7 @@ const categoryListDetails = async (catId, catName) => {
 const loadCategoryDetails = (catDetails, catName, catId) => {
     console.log(catDetails);
     const getNewsContainerDiv = document.getElementById('news-container-id');
+    const loadCatDivMenue = document.getElementById('category-div-menue');
     getNewsContainerDiv.innerHTML = '';
     //display message
     const itemFound = document.getElementById('item-found-message');
@@ -54,12 +55,14 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
             <span>No</span> news found for category <span>${catName}</span>
             `;
         getSliderDiv.classList.remove('d-none');
+        loadCatDivMenue.classList.add('d-none');
     }
     else {
         createMessage.innerHTML = `
             <span>${catDetails.length}</span> news found for category <span>${catName}</span>
             `;
         getSliderDiv.classList.add('d-none');
+        loadCatDivMenue.classList.remove('d-none');
     }
     itemFound.appendChild(createMessage);
     //descending order
@@ -114,7 +117,7 @@ const loadCategoryDetails = (catDetails, catName, catId) => {
     //stop loader or hide loader
     toggleSpinner(false);
 }
-categoryListDetails(01);
+categoryListDetails();
 //loader
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
